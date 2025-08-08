@@ -1,57 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
   
-  <title>Frontend Mentor | Conference ticket generator</title>
+  <script src="assets/js/script.js" defer></script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Frontend Mentor | Conference ticket generator</title>
 </head>
 <body>
+  <div class="background-wrapper">
+    <img src="assets/images/pattern-lines.svg" alt="background-lines" class="background-lines" />
+    <img src="assets/images/pattern-squiggly-line-top.svg" alt="line-top" class="background-lines-top" />
+    <img src="assets/images/pattern-circle.svg" alt="background-circle" class="background-circle" />
+    <img src="assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="line-bottom" class="background-lines-bottom" />
+  </div>
 
-  <!-- Form starts -->
+  <div class="ticket-generator">
+    <div class="logo-section">
+      <img src="assets/images/logo-mark.svg" alt="logo-image" class="logo-image" />
+      <span class="logo-text">Coding Conf</span>
+    </div>
 
-  Your Journey to Coding Conf 2025 Starts Here!
+    <div class="main-section" >
 
-  Secure your spot at next year's biggest coding conference.
+      <h3 class="greeting">Your Journey to Coding Conf 2025 Starts Here!</h3>
+      <p class="greeting-subtext">Secure your spot at next year's biggest coding conference.</p>
 
-  Upload Avatar
-  Drag and drop or click to upload
-  Upload your photo (JPG or PNG, max size: 500KB).
+      <div class="file-wrapper">
+        <input type="file" id="photo-upload" accept="image/*" style="display:none" />
 
-  Full Name
+        <label class="file-sec-label-upload">Upload Avatar</label>
+        <div class="file-section" tabindex="0">
+          <div class="upload-background">
+            <img src="assets/images/icon-upload.svg" alt="upload-image" class="upload-image" />
+          </div>
+          <p class="upload-subtext">Drag and drop or click to upload</p>
+          <div class="foto-uploaded">
+            <span class="foto-uploaded-option" id="remove-img">Remove image</span>
+            <span class="foto-uploaded-option" id="change-img">Change image</span>
+          </div>
+        </div>
+        <div class="warning-circle">
+          <div class="circle">
+            <span class="circle-letter">i</span>
+          </div>
+          <p class="upload-warning">Upload your photo (JPG or PNG, max size: 500KB).</p>
+          <div class="circle-error">
+            <span class="circle-letter-error">i</span>
+          </div>
+          <p class="error-upload">File too large. Please upload a photo under 500KB.</p>
+        </div>
 
-  Email Address
-  example@email.com
+        <label class="file-sec-label">Full Name</label>
+        <div class="text-upload-section">
+          <input type="text" name="name-input" id="name-input" />
+        </div>
 
-  GitHub Username
-  @yourusername
+        <label class="file-sec-label">Email Address</label>
+        <div class="text-upload-section" id="email-section">
+          <input type="text" name="email" placeholder="example@email.com" id="email-input"/>
+        </div>
 
-  Generate My Ticket
+        <div class="error-email-container">
+          <div class="circle-error-email">
+            <span class="circle-letter-error-email">i</span>
+          </div>
+          <p class="error-email">Please enter a valid email address.</p>
+        </div>
 
-  <!-- Form ends -->
+        <label class="file-sec-label">GitHub Username</label>
+        <div class="text-upload-section">
+          <input type="text" name="GitHub" placeholder="@yourusername" id="gitname-input"/>
+        </div>
 
-  <!-- Generated tickets starts -->
+        <button class="upload-button">
+          <span class="button-text">Generate My Ticket</span>
+        </button>
 
-  Congrats, <!-- Full Name -->! Your ticket is ready.
+        <div class="error-empty">
+          <div class="circle-error-empty">
+            <span class="circle-letter-error-empty">i</span>
+          </div>
+          <p class="error-fileds">All fields should be filled!</p>
+        </div>
+      </div>
+      
+    </div>
 
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
+    <div class="ticket-section">
 
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
+      <h3 class="greeting-ticket">Congrats, <span class="title-name"></span>! Your ticket is ready.</h3>
+      <p class="greeting-subtext-ticket">We've emailed your ticket to <span class="title-username"></span> and will send updates in the run up to the event.</p>
 
-  <!-- Generated tickets ends -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+
+      <div class="ticket">
+        <div class="logo-section-ticket">
+          <img src="assets/images/logo-mark.svg" alt="logo-image" class="logo-image-ticket" />
+          <span class="logo-text-ticket">Coding Conf</span>
+        </div>
+        <p class="ticket-text"></p>
+        <span class="ticket-side-text">#01609</span>
+        <div class="info-ticket">
+          <img src="assets/images/image-avatar.jpg" alt="image-ticket" class="image-ticket" />
+          <div class="info-text">
+            <p class="info-name"></p>
+            <div class="username">
+              <i class="ri-github-line"></i>
+              <p class="info-username"></p>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+      
+    </div>
+
+  </div>
+    
   </div>
 </body>
 </html>
+
+
+
+
+
